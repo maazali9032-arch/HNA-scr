@@ -24,7 +24,7 @@ export function WelcomeScreen() {
         </p>
         <h1 className="mt-9 font-display text-[clamp(2.7rem,10vw,4.7rem)] font-light leading-[1.02] tracking-[0.035em] text-primary">
           An invitation,
-          <span className="block italic text-[color:var(--henna-deep)]">drawn in henna</span>
+          <span className="block italic text-[color:var(--terracotta)]">drawn in henna</span>
         </h1>
         <VineDivider className="mt-8 w-52 opacity-90" />
         <p className="mt-7 max-w-[17rem] font-body text-sm leading-7 text-muted-foreground">

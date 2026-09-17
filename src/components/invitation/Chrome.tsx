@@ -124,7 +124,7 @@ export function MusicToggle({ src, active }: { src: string; active: boolean }) {
               .catch(() => setPlaying(false));
           }
         }}
-        className="fixed bottom-5 right-5 z-40 grid h-11 w-11 place-items-center rounded-full border border-[color:var(--gold)]/50 bg-card/80 text-primary backdrop-blur-sm transition-colors hover:bg-secondary"
+        className="fixed bottom-5 right-5 z-40 grid h-11 w-11 place-items-center rounded-full border border-[color:var(--gold)]/50 bg-card/80 text-primary backdrop-blur-sm transition-colors hover:bg-secondary hover:text-secondary-foreground"
       >
         {playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
       </button>

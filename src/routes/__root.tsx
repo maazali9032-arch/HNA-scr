@@ -18,7 +18,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Wedding Invitation" },
       { name: "description", content: "A henna line-art wedding invitation." },
-      { name: "theme-color", content: "#f8f4e9" },
+      { name: "theme-color", content: "#f2e1c9" },
       { name: "msapplication-config", content: "/browserconfig.xml" },
       { name: "msapplication-TileImage", content: "/ms-icon-144x144.png" },
       { property: "og:title", content: "Wedding Invitation" },

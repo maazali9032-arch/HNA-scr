@@ -42,31 +42,38 @@
 :root {
   --radius: 0.25rem;
 
-  --ivory: oklch(0.968 0.014 85);
-  --champagne: oklch(0.912 0.031 80);
-  --gold: oklch(0.706 0.084 72);
-  --henna: oklch(0.452 0.086 46);
-  --henna-deep: oklch(0.318 0.062 41);
+  /* Terracotta & Ochre palette. Keep the aliases used by existing artwork. */
+  --baked-sand: #f2e1c9;
+  --raw-umber: #584232;
+  --terracotta: #9d4d34;
+  --bronze: #a17438;
+  --olive: #596239;
+  --deep-umber: #35291f;
+  --ivory: var(--baked-sand);
+  --champagne: #e7c5ab;
+  --gold: var(--bronze);
+  --henna: var(--raw-umber);
+  --henna-deep: var(--deep-umber);
 
   --background: var(--ivory);
   --foreground: var(--henna-deep);
-  --card: oklch(0.982 0.01 88);
+  --card: #f8ecd9;
   --card-foreground: var(--henna-deep);
-  --popover: oklch(0.982 0.01 88);
+  --popover: #f8ecd9;
   --popover-foreground: var(--henna-deep);
   --primary: var(--henna);
-  --primary-foreground: oklch(0.98 0.012 86);
-  --secondary: var(--champagne);
-  --secondary-foreground: var(--henna-deep);
-  --muted: oklch(0.938 0.018 84);
-  --muted-foreground: oklch(0.542 0.045 52);
-  --accent: var(--gold);
-  --accent-foreground: oklch(0.98 0.012 86);
+  --primary-foreground: #fff7eb;
+  --secondary: var(--terracotta);
+  --secondary-foreground: #fff7eb;
+  --muted: #e9d5bd;
+  --muted-foreground: var(--olive);
+  --accent: var(--olive);
+  --accent-foreground: #fff7eb;
   --destructive: oklch(0.51 0.18 27);
   --destructive-foreground: oklch(0.98 0.012 86);
-  --border: oklch(0.86 0.035 76);
-  --input: oklch(0.86 0.035 76);
-  --ring: var(--gold);
+  --border: #c9a87f;
+  --input: #c9a87f;
+  --ring: var(--olive);
 }
 
 .dark {
