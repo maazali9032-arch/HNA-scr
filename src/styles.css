@@ -1,0 +1,227 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-henna: var(--henna);
+  --color-henna-deep: var(--henna-deep);
+  --color-gold: var(--gold);
+  --color-champagne: var(--champagne);
+  --color-ivory: var(--ivory);
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-body: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: "Noto Naskh Arabic", "Cormorant Garamond", serif;
+  --font-deva: "Tiro Devanagari Hindi", "Cormorant Garamond", serif;
+}
+
+:root {
+  --radius: 0.25rem;
+
+  --ivory: oklch(0.968 0.014 85);
+  --champagne: oklch(0.912 0.031 80);
+  --gold: oklch(0.706 0.084 72);
+  --henna: oklch(0.452 0.086 46);
+  --henna-deep: oklch(0.318 0.062 41);
+
+  --background: var(--ivory);
+  --foreground: var(--henna-deep);
+  --card: oklch(0.982 0.01 88);
+  --card-foreground: var(--henna-deep);
+  --popover: oklch(0.982 0.01 88);
+  --popover-foreground: var(--henna-deep);
+  --primary: var(--henna);
+  --primary-foreground: oklch(0.98 0.012 86);
+  --secondary: var(--champagne);
+  --secondary-foreground: var(--henna-deep);
+  --muted: oklch(0.938 0.018 84);
+  --muted-foreground: oklch(0.542 0.045 52);
+  --accent: var(--gold);
+  --accent-foreground: oklch(0.98 0.012 86);
+  --destructive: oklch(0.51 0.18 27);
+  --destructive-foreground: oklch(0.98 0.012 86);
+  --border: oklch(0.86 0.035 76);
+  --input: oklch(0.86 0.035 76);
+  --ring: var(--gold);
+}
+
+.dark {
+  --background: var(--ivory);
+  --foreground: var(--henna-deep);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--gold) 35%, transparent);
+  }
+}
+
+@utility paper-grain {
+  position: relative;
+}
+
+@utility text-shadow-soft {
+  text-shadow: 0 1px 0 color-mix(in oklab, var(--champagne) 60%, transparent);
+}
+
+/* Ornamental letter spacing helpers */
+@utility tracking-ornate {
+  letter-spacing: 0.42em;
+}
+
+@layer components {
+  .paper-surface {
+    background-color: var(--ivory);
+    background-image:
+      radial-gradient(
+        ellipse at 50% 0%,
+        color-mix(in oklab, var(--champagne) 55%, transparent),
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse at 50% 100%,
+        color-mix(in oklab, var(--champagne) 45%, transparent),
+        transparent 65%
+      );
+  }
+
+  .grain-layer {
+    background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    opacity: 0.14;
+    mix-blend-mode: multiply;
+  }
+
+  .vignette-layer {
+    background: radial-gradient(
+      ellipse at center,
+      transparent 45%,
+      color-mix(in oklab, var(--henna-deep) 16%, transparent) 100%
+    );
+  }
+
+  .rule-gold {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklab, var(--gold) 70%, transparent),
+      transparent
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* A translucent thread of branding, always anchored to the device viewport. */
+.brand-ribbon {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 60;
+  height: clamp(10px, 1.8dvh, 16px);
+  overflow: hidden;
+  border-top: 1px solid color-mix(in oklab, var(--gold) 35%, transparent);
+  background: color-mix(in oklab, var(--ivory) 45%, transparent);
+  color: var(--henna);
+  font-family: var(--font-body);
+  font-size: clamp(8px, 1.2dvh, 10px);
+  line-height: clamp(10px, 1.8dvh, 16px);
+  letter-spacing: 0.2em;
+  pointer-events: none;
+}
+.brand-ribbon-track {
+  display: flex;
+  width: max-content;
+  animation: brand-drift 35s linear infinite;
+}
+.brand-ribbon-group {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-around;
+  min-width: 100vw;
+}
+.brand-ribbon-group span {
+  white-space: nowrap;
+  padding-inline: 2rem;
+}
+.brand-ribbon-group i {
+  font-style: normal;
+  margin-left: 4rem;
+  color: var(--gold);
+}
+@keyframes brand-drift {
+  to {
+    transform: translateX(-50%);
+  }
+}
+main h1,
+main h2,
+main h3,
+main p {
+  overflow-wrap: anywhere;
+}
+main p {
+  white-space: pre-line;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 5px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-ribbon-track {
+    animation: none;
+  }
+  svg[aria-hidden="true"] path {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
