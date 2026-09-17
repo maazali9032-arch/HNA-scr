@@ -1,6 +1,6 @@
 # Public invitation implementation and deployment
 
-The invitation follows PUBLIC_INVITATION_INTEGRATION.md. The original henna SVG artwork, palette, typefaces and section choreography are retained. The root URL and unknown routes show the themed not-found screen; wedding content is fetched only for a valid single-segment invitation URL.
+The invitation follows PUBLIC_INVITATION_INTEGRATION.md. The original henna SVG artwork, palette, typefaces and section choreography are retained. The root URL shows a themed welcome screen explaining that each invitation has its own link; unknown routes show the themed not-found screen. Wedding content is fetched only for a valid single-segment invitation URL.
 
 ## Configuration
 

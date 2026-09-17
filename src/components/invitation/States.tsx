@@ -11,10 +11,10 @@ function Shell({ children }: { children: React.ReactNode }) {
     <main className="paper-surface relative flex min-h-[100svh] flex-col items-center justify-center overflow-x-clip px-7 py-20">
       <PaperBackdrop />
       <Mandala
-        className="pointer-events-none absolute w-[120vw] max-w-[30rem] opacity-20"
+        className="pointer-events-none absolute bottom-[-5rem] w-[min(70vw,20rem)] opacity-15"
         rings={3}
       />
-      <div className="relative z-10 flex max-w-md flex-col items-center text-center">
+      <div className="relative z-10 flex w-full max-w-md flex-col items-center text-center">
         {children}
       </div>
     </main>

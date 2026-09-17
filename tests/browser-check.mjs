@@ -107,7 +107,12 @@ await page.getByRole("button", { name: "Try again" }).waitFor();
 response = { state: "not_found" };
 await page.getByRole("button", { name: "Try again" }).click();
 await page.getByRole("heading", { name: "Invitation not found" }).waitFor();
-for (const path of ["/", "/%E0%A4%A", "/%2F", "/%5C", "/too/many/segments"]) {
+const rootRequestCount = requests.length;
+await page.goto(base);
+await page.getByRole("heading", { name: /An invitation, drawn in henna/ }).waitFor();
+assert.equal(requests.length, rootRequestCount);
+await page.screenshot({ path: "test-results/welcome-mobile.png" });
+for (const path of ["/%E0%A4%A", "/%2F", "/%5C", "/too/many/segments"]) {
   const count = requests.length;
   await page.goto(`${base}${path}`);
   await page.getByRole("heading", { name: "Invitation not found" }).waitFor();
